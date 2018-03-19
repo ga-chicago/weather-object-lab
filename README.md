@@ -14,7 +14,9 @@ Competencies: <br>
 
 ## Let's talk about the weather
 
-Below is an enormous object. It describes the weather in Evanston over the next 5 days (as of the time of this writing which is 3/16/2018). It's simply too large for a human to read in any reasonable amount of time. Therefore, visit this link: [Documentation](http://openweathermap.org/forecast5#JSON) which contains an explanation of how to use this data.  Focus on the bulleted list with the red property names under "Parameters," under "JSON," under "Weather parameters in API respond"--the link should take you directly there. **Remember**: JavaScript objects do not guarantee that properties will be in any particular order. Also pay attention to what the notation/brackets/parentheses tell you about what data types you're working with. 
+Below is an enormous object. It describes the weather in Evanston over the next 5 days (as of the time of this writing which is 3/16/2018). It's simply too large for a human to read in any reasonable amount of time. Therefore, visit this link: [OpenWeatherMap.org API Documentation](http://openweathermap.org/forecast5#JSON). 
+
+It contains an explanation of how to use this data. Focus on the bulleted list with the red property names under "Parameters," under "JSON," under "Weather parameters in API respond"—the link should take you directly there. **Remember**: JavaScript objects do not guarantee that properties will be in any particular order. Also pay attention to what the notation/brackets/parentheses tell you about what data types you're working with. 
 
 Read each question closely, and don't worry about anything other than what you're being asked to do. There is more information on this API documentation page than you need, including stuff we have not talked about.  This is common when using outside resources, so you to practice finding just the information you need in more complex contexts.
 
@@ -81,6 +83,8 @@ etc....
 ```
 
 <hr>
+
+Thanks OpenWeatherMap for an awesome learning tool. This data came from an API call to one of their endpoints. Material reused acccording to the [Creative Commons License](https://creativecommons.org/licenses/by-sa/4.0/) as described in the [OpenWeatherMap Terms of Service](https://openweathermap.org/terms).
 
 ### The data:
 
