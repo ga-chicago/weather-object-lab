@@ -107,3 +107,49 @@ console.log(
 )
 
 // print a sentence
+
+
+//3. 
+
+const year3 = 2018;
+const month3 = 2;
+const day3 = 17;
+const hours3 = 3;
+const stPats = new Date(year3, month3, day3, hours3)
+let stPatsChunk;
+
+for(let i = 0; i < list.length; i++) {
+	let someDate = new Date(list[i].dt_txt)
+	if(someDate.toString() == stPats.toString()) {
+		stPatsChunk = list[i] // both people are ointing to this building (so to speak)
+	}
+}
+// get wind speed and direction
+let windSpeed = stPatsChunk.wind.speed;
+let windDirection = stPatsChunk.wind.deg;
+console.log(windSpeed, windDirection)
+
+// // figuure out our  +/-
+let segment = 360/16;
+// // console.log(segment)
+
+// let octant = 360/8;
+// for(let i = 0; i < 360; i++) {
+// 	console.log(i.toString() + ": " +  (i % 45).toString());
+// 	if(i > i*segment && i < (i*segment) + octant) {
+// 		// console.log("NE")
+// 	}
+// }
+
+
+const windDirections = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"]
+
+let index = Math.round((windDirection + segment) / 45)
+let windSpeedMph = windSpeed*2.23694;
+console.log(
+	"The wind will be blowing towards the " 
+	+ windDirections[index] 
+	+ " at " + parseFloat(windSpeedMph).toFixed(1) + "mph"
+)
+
+// thanks hannah and tyler
