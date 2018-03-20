@@ -128,7 +128,7 @@ function logTempAtDateTime(date,time,weatherObj) {
     let temp = tempAtDateTime(date,time,weatherObj);
 
     //Log a formatted string with the date, time, and temperature
-    console.log("On " + date + " at " + time + ", the temperature will be " + Math.round(temp) + " degrees Fahrenheit.");
+    console.log("On " + date + " at " + time + ", the temperature will be " + Math.round(temp) + "\u00B0F.");
 }
 
 function tempAtDateTime(date,time,weatherObj) {
@@ -368,8 +368,8 @@ function printForecast(weatherArr) {
         console.log("----------------");
         console.log("Date: " + day.date);
         console.log("Weather: " + day.weatherDes);
-        console.log("High Temp: " + day.highTemp);
-        console.log("Low Temp: " + day.lowTemp);
+        console.log("High Temp: " + day.highTemp + "\u00B0F");
+        console.log("Low Temp: " + day.lowTemp + "\u00B0F");
         console.log("----------------");
     }
 }
