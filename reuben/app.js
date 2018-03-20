@@ -125,7 +125,7 @@ for(let i = 0; i < list.length; i++) {
 	}
 }
 // get wind speed and direction
-let windSpeed = stPatsChunk.wind.speed;
+let windSpeed = stPatsChunk.wind.speed; 
 let windDirection = stPatsChunk.wind.deg;
 console.log(windSpeed, windDirection)
 
@@ -153,3 +153,30 @@ console.log(
 )
 
 // thanks hannah and tyler
+
+
+//5. rite logic to print the humidity each day at noon. If it's over 75%, also print the word "gross" in parentheses like this:
+
+for(let i = 0; i < list.length; i++) {
+	
+	// see if this is a noon chunk
+	const thisChunkDate = new Date(list[i].dt_txt)
+
+	/// if this is that, 
+	if(thisChunkDate.getHours() == 12) {
+
+		let dateString = thisChunkDate.getFullYear() + "-"
+			+ (thisChunkDate.getMonth() + 1) + "-"
+			+ thisChunkDate.getDate()
+		// print humidity		
+		console.log(dateString + ": " + list[i].main.humidity + " (gross we cheated)");
+		// if hum > 75
+			// gross
+
+	}
+}
+
+
+
+
+
