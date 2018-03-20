@@ -177,30 +177,19 @@ function convertWindDirToCard(dir) {
 
     //break the degrees of the compass into regions
     //for instance, the northeast region goes from 22.5 degrees to 67.5 degrees
-    if (dir >= 22.5 && dir < 67.5) {
-        return "northeast";
-    }
-    if (dir >= 67.5 && dir < 112.5) {
-        return "east";
-    }
-    if (dir >= 112.5 && dir < 157.5) {
-        return "southeast";
-    }
-    if (dir >= 157.5 && dir < 202.5) {
-        return "south";
-    }
-    if (dir >= 202.5 && dir < 247.5) {
-        return "southwest";
-    }
-    if (dir >= 247.5 && dir < 292.5) {
-        return "west";
-    }
-    if (dir >= 292.5 && dir < 337.5) {
-        return "northwest";
-    }
-    if (dir >= 337.5 || dir <= 22.5) {
-        return "north";
-    }
+    
+    let seg = 360/16;
+    let oct = 360/8;
+    let cardInd = 0;
+    let cards = ["northeast","east","southeast","south","southwest","west","northwest","north"];
+    
+    do{
+        if (dir >= seg && dir < (seg + oct)) {
+            return cards[cardInd];
+        }
+        cardInd++
+        seg += oct;
+    } while(seg !== 22.5)
 }
 
 console.log("Wind speed:");
