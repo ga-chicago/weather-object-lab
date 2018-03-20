@@ -155,7 +155,7 @@ console.log(
 // thanks hannah and tyler
 
 
-//5. rite logic to print the humidity each day at noon. If it's over 75%, also print the word "gross" in parentheses like this:
+//5. write logic to print the humidity each day at noon. If it's over 75%, also print the word "gross" in parentheses like this:
 
 for(let i = 0; i < list.length; i++) {
 	
@@ -176,6 +176,34 @@ for(let i = 0; i < list.length; i++) {
 	}
 }
 
+
+// 6. 
+const myWeather = []
+const days = [] // days[0] will be a reference
+
+// let's build an array of day objects where each day has this format: 
+/*
+{
+	date:
+	temps:
+	weathers:
+}
+*/
+
+// to do that:
+//loop over 3 hour units
+// ** we want to always be adding stuff to the last element in the days array
+	
+	// if we don't know about this day yet
+	// add it to our days array
+
+	// otherwise if we do know about it
+	// add this unit's data to that day object in the days array
+
+
+// then:
+// iterate over the days array array and calculate the highs and lows and most constant weather,
+// building our new objects with that data and pushing them into myWeather as we go.
 
 
 
