@@ -70,3 +70,40 @@ console.log(
 	+ theOneWeWant.weather["0"].description
 	+ ". "
 )
+
+
+//3.  Write logic to print out the forecasted temperature for 3-20 at 9am. Make the output a nice English sentence, and code any conversion necessary (Temp is given in Kelvin)
+
+// find the object we need
+
+const year2 = 2018;
+const month2 = 2;
+const day2 = 20;
+const hours2 = 9;
+const mar20at9am = new Date(year2, month2, day2, hours2)
+let theRightWeatherChunk;
+//loop over weather objects
+for(let i = 0; i < list.length; i++) {
+	// make a date obj for comparison
+	const thisDate = new Date(list[i].dt_txt)
+	// grab the right one
+	if(mar20at9am.toString()===thisDate.toString()) {
+		theRightWeatherChunk = list[i]
+	}
+}
+// console.log(theRightWeatherChunk.main.temp)
+
+// get the temp
+const someTemp = theRightWeatherChunk.main.temp;
+
+// convert the temp
+// 273.15 K = 0
+// *9/5 + 32
+const someTempC = someTemp - 273.15;
+const someTempF = someTempC * (9/5) + 32;
+console.log(
+	"The temperature in " + evanstonWeather.city.name
+	+ " is " + someTempF + "F"
+)
+
+// print a sentence
