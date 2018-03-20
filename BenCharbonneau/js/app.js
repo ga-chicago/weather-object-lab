@@ -1,4 +1,5 @@
 //I called my object weather instead of evanstonWeather
+//dates and times are expected to be entered in the UTC timezone
 //dates are expected to be entered in the "MM-DD-YYYY" or "MM-DD" formats
 //times are expected to be entered in the "H AM/PM" format
 
@@ -52,7 +53,7 @@ function getDateAndTimeInUnix(date, time) {
     date = date.split("-");
 
     //split out the hour and AMPM
-    let hour = parseInt(time.slice(0,1));
+    let hour = parseInt(time.slice(0,time.indexOf("m")-1));
     let AMPM = time.slice(time.indexOf("m")-1,time.length).toUpperCase()
     
     //default the year to the current year if it wasn't entered
@@ -69,7 +70,7 @@ function getDateAndTimeInUnix(date, time) {
     time = hour.toString() + ":00 " + AMPM;
 
     //Parse the date into Unix format using the Date.parse method
-    let dt = Date.parse(date + " " + time);
+    let dt = Date.parse(date + " " + time + " UTC");
     return dt/1000;
 }
 
@@ -110,7 +111,7 @@ function findTimestamp(dt, weatherObj) {
 
     //If we didn't find the exact date and time. Log a warning
     if (prevDiff[1] !== 0) {
-        console.log("Couldn't find the specified day. Using " + (new Date(prevDiff[0].dt*1000)).toLocaleString("en-US") + " instead.");
+        console.log("Couldn't find the specified day. Using " + (new Date(prevDiff[0].dt*1000)).toUTCString() + " instead.");
     }
 
     //Return the object for that date and time or the closest date and time
