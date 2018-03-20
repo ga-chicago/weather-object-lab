@@ -32,50 +32,41 @@ const getCity = (parameter) => {
 }
 
 const returnedFromGetCity = getCity(evanstonWeather)
-// console.log(returnedFromGetCity)
+console.log(returnedFromGetCity)
 
 
 
+//2. Write logic to console.log the weather description for 3-20 at 6pm. Make the output a nice English sentence.
 
+const list = evanstonWeather.list
 
+// build our date for comparison
+const year = 2018;
+const month = 2;
+const day = 20;
+const hours = 18;
+const mar20at6pm = new Date(year, month, day, hours)
+console.log(mar20at6pm.toString());
+let theOneWeWant;
 
+// for loop to find the right 3 hr period
+for(let i = 0; i < list.length; i++) {
 
+	// console.log(list[i].dt_txt)
+	// make a date from this dt_txt for our comparison
+	const thisDate = new Date(list[i].dt_txt)
 
+	// if this one is the one that has the right date
+	if(mar20at6pm.toString() == thisDate.toString())	{
+		// grab it 
+		theOneWeWant = list[i]
+		console.log(list[i].dt_txt)
+		console.log(thisDate.toString())
+	}
 
-
-
-
-
-
-
-// function add(a, b) {
-// 	let result = a + b;
-
-// 	console.log("hey i'm a message")
-
-// 	return result
-// 	// asdfasdfasdfasdfasdfasdfasdf
-// }
-
-// const answer = add(10, 20)
-// // anaswer is now 30
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log(answer)
+}
+console.log(
+	"The weather on March 20 at 6pm will be "
+	+ theOneWeWant.weather["0"].description
+	+ ". "
+)
