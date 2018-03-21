@@ -396,3 +396,21 @@ const getWeatherArray = (data) => {
 const myWeatherArray = getWeatherArray(evanstonWeather)
 console.log(myWeatherArray)
 
+
+//8. print output as specified
+const printForecast = (weatherSynopsis) => {
+	for(weatherObj of weatherSynopsis) {
+		console.log('-----------------------');
+		console.log('Date: ' + weatherObj.date);
+		let high = (weatherObj.high - 273.15) * (9/5) + 32
+		high = Math.round(high)
+		console.log('High: ' + high + "°F")
+		let low = (weatherObj.low - 273.15) * (9/5) + 32
+		low = Math.round(low)
+		console.log('Low: ' + low + "°F")
+		console.log('Weather: ' + weatherObj.weatherDescription)
+		console.log('-----------------------');
+		console.log('');
+	}	
+}
+printForecast(myWeatherArray)
