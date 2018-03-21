@@ -191,19 +191,93 @@ const days = [] // days[0] will be a reference
 */
 
 // to do that:
-//loop over 3 hour units
-// ** we want to always be adding stuff to the last element in the days array
+// loop over 3 hour units
+// for this loop, we want to always be adding stuff to the last element in the days array
+for(let i = 0; i < list.length; i++) {
 	
-	// if we don't know about this day yet
-	// add it to our days array
+	let thisDate = new Date(list[i].dt_txt);
 
-	// otherwise if we do know about it
-	// add this unit's data to that day object in the days array
+	// if there's not a day for this date yet
+	if(days.length == 0 || days[days.length-1].date.getDate() != thisDate.getDate()) {
+		// create the day object
+		let day = {
+			date: thisDate,
+			temps: [],
+			weathers: []
 
+		}
+		// add it to our days array
+		days.push(day)
+	}
+
+
+	// otherwise if we do we do know about it
+	else {
+		let day = days[days.length-1];
+
+		// add this unit's data to that day object in the days array
+		day.temps.push(list[i].main.temp);
+		day.weathers.push(list[i].weather[0].description)
+	}
+
+}
+console.log(days)
 
 // then:
-// iterate over the days array array and calculate the highs and lows and most constant weather,
+// iterate over the days array and calculate the highs and lows and most constant weather,
 // building our new objects with that data and pushing them into myWeather as we go.
+
+for(let i = 0; i < days.length; i++) {
+
+	let objToAdd = {};
+	const date = days[i].date
+	const year = date.toLocaleDateString('en-US', { year: 'numeric'});
+	const month = date.toLocaleDateString('en-US', { month: 'short'})
+	const dayOfMonth = date.toLocaleDateString('en-US', { day: 'numeric'})
+	const weekday = date.toLocaleDateString('en-us', { weekday: 'short'})
+	const formattedDate = weekday + ", " + month + " " + dayOfMonth + ", " + year
+	console.log(formattedDate);
+	objToAdd.date = formattedDate;
+
+
+	let low = null;
+	let high = null;
+	for(temp of days[i].temps) {
+		if(low == null || temp < low ) {
+			low = temp;
+		}
+		if(high == null || temp > high) {
+			high = temp;
+		}
+	}
+	objToAdd.high = high;
+	objToAdd.low = low;
+
+	// find most common weather for the day....
+	// first record how many times each weather appears
+	let weatherObj = {}	
+	for(w of days[i].weathers) {
+		let keys = Object.keys(weatherObj);
+		if(keys.indexOf(w) == -1) {
+			weatherObj[w] = 1;
+		} else {
+			weatherObj[w]++;
+		}
+	}
+	console.log(weatherObj)
+	// then get the most frequent one
+	let mostFreq = null;
+	for(weath in weatherObj) {
+		if(mostFreq==null || weatherObj[weath] > mostFreq) {
+			mostFreq = weath;
+		}
+	}
+	// mostFreq should be (one of) the one(s) with the highest num
+	objToAdd.weatherDescription = mostFreq;
+	myWeather.push(objToAdd)
+
+}
+console.log(myWeather)
 
 
 
