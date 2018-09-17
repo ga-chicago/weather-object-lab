@@ -15,7 +15,7 @@ Competencies: <br>
 
 ## Let's talk about the weather
 
-Notice that at the bottom of this file under ["The Data"](#the-data-) is an enormous object. It describes the weather in Evanston over a period from 3/16/2018 to 3/21/2018. It's simply too large for a human to read in any reasonable amount of time. Therefore, visit this link: [OpenWeatherMap.org API Documentation](http://openweathermap.org/forecast5#JSON). 
+Notice that at the bottom of this file under ["The Data"](#the-data) is an enormous object. It describes the weather in Evanston over a period from 3/16/2018 to 3/21/2018. It's simply too large for a human to read in any reasonable amount of time. Therefore, visit this link: [OpenWeatherMap.org API Documentation](http://openweathermap.org/forecast5#JSON). 
 
 It contains an explanation of how to use this data. Focus on the bulleted list with the red property names under "Parameters," under "JSON," under "Weather parameters in API respond"—the above link should take you pretty close to there on the page. **Remember**: JavaScript objects do not guarantee that properties will be in any particular order. Also pay attention to what the notation/brackets/parentheses tell you about what data types you're working with. 
 
