@@ -60,7 +60,7 @@ I'd suggest just getting it working for one piece of data for one day, then all 
       // logic similar to question 6
     }
     ```
-You should then be able to use your function like this:
+    You should then be able to use your function like this:
 
     ```javascript
     const myWeatherArray = getWeatherArray(evanstonWeather);
