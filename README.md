@@ -1,28 +1,29 @@
-![ga](http://mobbook.generalassemb.ly/ga_cog.png)
+![ga](https://camo.githubusercontent.com/6ce15b81c1f06d716d753a61f5db22375fa684da/68747470733a2f2f67612d646173682e73332e616d617a6f6e6177732e636f6d2f70726f64756374696f6e2f6173736574732f6c6f676f2d39663838616536633963333837313639306533333238306663663535376633332e706e67)
 
-## wdi-11-chi _curious-turtles_
+# Weather Object Lab
+
 
 Title: **Let's talk about the weather**<br>
-Type: Lab/Practice<br>
+Type: Lab<br>
 Creator: Reuben Ayres<br>
 Competencies: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Object practice.**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Reading documentation practice.**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Practicing breaking bigger problems into smaller ones.**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Objects, Mixed datatypes.**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Reading documentation.**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Breaking bigger problems into smaller ones.**<br>
              
 <hr>
 
 ## Let's talk about the weather
 
-Below is an enormous object. It describes the weather in Evanston over the next 5 days (as of the time of this writing which is 3/16/2018). It's simply too large for a human to read in any reasonable amount of time. Therefore, visit this link: [OpenWeatherMap.org API Documentation](http://openweathermap.org/forecast5#JSON). 
+Notice that at the bottom of this file under ["The Data"](#the-data-) is an enormous object. It describes the weather in Evanston over a period from 3/16/2018 to 3/21/2018. It's simply too large for a human to read in any reasonable amount of time. Therefore, visit this link: [OpenWeatherMap.org API Documentation](http://openweathermap.org/forecast5#JSON). 
 
-It contains an explanation of how to use this data. Focus on the bulleted list with the red property names under "Parameters," under "JSON," under "Weather parameters in API respond"—the link should take you directly there. **Remember**: JavaScript objects do not guarantee that properties will be in any particular order. Also pay attention to what the notation/brackets/parentheses tell you about what data types you're working with. 
+It contains an explanation of how to use this data. Focus on the bulleted list with the red property names under "Parameters," under "JSON," under "Weather parameters in API respond"—the above link should take you pretty close to there on the page. **Remember**: JavaScript objects do not guarantee that properties will be in any particular order. Also pay attention to what the notation/brackets/parentheses tell you about what data types you're working with. 
 
-Read each question closely, and don't worry about anything other than what you're being asked to do. There is more information on this API documentation page than you need, including stuff we have not talked about.  This is common when using outside resources, so you to practice finding just the information you need in more complex contexts.
+Read each question closely, and don't worry about anything other than what you're being asked to do. There is more information on this API documentation page than you need, including stuff we have not talked about.  This is common when using outside resources.  You should practice finding just the information you need in more complex contexts.
 
-Again--read **all** of each question carefully before you start doing any work.
+### Questions
 
-0. **Fork and clone this repository. Inside the folder created by the clone, create a folder with your name and do the work in there. Do a commit after each question. Then push your commits back to your fork when you're done and make a pull request. I will accept/merge the pull requests and then you will be able to easily see each other's work.**
+#### For this assignment, and every assignment, read **all** of each question carefully before you start doing any work.
 
 1. Access the city information using some kind of object notation.
     * print the name of the city in the console.
@@ -53,41 +54,43 @@ This will take some thinking. Plan out the steps required for each step carefull
 I'd suggest just getting it working for one piece of data for one day, then all the data for a day, before writing the final code to do all the days.
 
 7. Put all of the logic (but don't delete your question 6 answer) from the previous question into a function called `getWeatherArray` that again takes the entire huge `evanstonWeather` object in as a parameter called `data`, and works with that parameter (instead of with the original object) to build and return an array like the `myWeather` one from the previous question. Refactor the logic as necessary to use the parameter to generate the objects/array of objects. <br><br>So your function might start out like this: 
-```javascript
-const getWeatherArray = (data) => {
-  // logic similar to question 6
-}
-```
+
+    ```javascript
+    const getWeatherArray = (data) => {
+      // logic similar to question 6
+    }
+    ```
 You should then be able to use your function like this:
-```javascript
-const myWeatherArray = getWeatherArray(evanstonWeather);
-```
+
+    ```javascript
+    const myWeatherArray = getWeatherArray(evanstonWeather);
+    ```
 
 8. Write _another_ function `printForecast` that iterates over the array returned by `getWeatherArray` and console.logs the 5-day forecast data like this:<br>
-```
--------------------
-Date: Tue, Jan 30, 1997
-Weather: clear
-High Temp: 13°F
-Low Temp: 2°F
--------------------
 
--------------------
-Date: Wed, Jan 31, 1997
-Weather: heavy snow
-High Temp: 23°F
-Low Temp: 12°F
--------------------
+    ```
+    -------------------
+    Date: Tue, Jan 30, 1997
+    Weather: clear
+    High Temp: 13°F
+    Low Temp: 2°F
+    -------------------
 
-etc....
-```
+    -------------------
+    Date: Wed, Jan 31, 1997
+    Weather: heavy snow
+    High Temp: 23°F
+    Low Temp: 12°F
+    -------------------
+
+    etc....
+    ```
 
 <hr>
 
 Thanks OpenWeatherMap for an awesome learning tool. This data came from an API call to one of their endpoints. Material reused acccording to the [Creative Commons License](https://creativecommons.org/licenses/by-sa/4.0/) as described in the [OpenWeatherMap Terms of Service](https://openweathermap.org/terms).
 
 ### The data:
-
 
 
 ```javascript
